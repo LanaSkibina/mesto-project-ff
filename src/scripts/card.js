@@ -29,8 +29,10 @@ export function createCard (cardData, userId, deleteCard, imageOnClick, likeCard
     deleteButton.remove();
   } else {
     // Устанавливаем слушатель на корзинку
-    deleteButton.addEventListener('click', () => deleteCard(card));
-  }
+    deleteButton.addEventListener('click', function (evt) {
+      deleteCard(evt, cardData);
+    });
+  } 
 
   // проверяем на мой лайк 
   const isMyLike = cardData.likes.some((like) => {

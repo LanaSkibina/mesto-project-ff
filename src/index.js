@@ -38,7 +38,7 @@ const jobInput = popupEditForm.querySelector('.popup__input_type_description');
 const profileImage = document.querySelector('.profile__image');
 const popupEditAvatar = document.querySelector('.popup_type_avatar');
 const editAvatarLink = popupEditAvatar.querySelector('.popup__input_type_url');
-const buttonSubmitEditProfile = document.querySelector('.popup__button-edit');
+const buttonSubmitEditProfile = popupEditProfile.querySelector(`${validationConfig.submitButtonSelector}`);
 const newAvatarSubmitButton = popupEditAvatar.querySelector(`${validationConfig.submitButtonSelector}`);
 
 // Окно добавления новой карточки
@@ -126,7 +126,7 @@ function submitEditAvatar(evt) {
     .finally(() => {
       renderLoading(false, newAvatarSubmitButton);
     })
-}
+};
 
 // Слушатель для сохранение измененных данных об аватаре пользователе
 popupEditAvatar.addEventListener('submit', submitEditAvatar);
