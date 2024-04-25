@@ -24,3 +24,9 @@
   opacity: 0;
   transition: visibility .4s, opacity .4s ease-in;
 }
+
+
+.popup__error_visible {
+  color: #FF0000;
+  font-size: 12px;
+}
