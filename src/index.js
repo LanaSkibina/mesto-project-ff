@@ -16,6 +16,16 @@ import { putLike, deleteLike, delCard, editProfile, addNewCard, editAvatar, getA
 //DOM узлы
 const placesContainer = document.querySelector('.places__list');
 
+// Валидация
+// Настройки валидации
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+};
 
 // Профиль
 const profile = document.querySelector('.profile');
@@ -57,16 +67,6 @@ const popupImage = document.querySelector('.popup_type_image');
 const popupImageImg = popupImage.querySelector('.popup__image');
 const popupImageTitle = popupImage.querySelector('.popup__caption');
 
-// Валидация
-// Настройки валидации
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible',
-}
 
 // Запуск валидации форм
 enableValidation(validationConfig);
