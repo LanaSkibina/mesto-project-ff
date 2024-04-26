@@ -70,18 +70,12 @@ export function deleteCard(evt, card) {
 export function likeCard(evt, id) {
   const likeButton = evt.target;
   const likesCount = likeButton.closest('.card__like_container').querySelector('.card__likes');
-  if (!likeButton.classList.contains('card__like-button_is-active')) {
-    putLike(id)
-      .then((card) => {
-        likesCount.textContent = card.likes.length;
-        likeButton.classList.toggle('card__like-button_is-active');
-      });
-  } else {
-    deleteLike(id)
-      .then((card) => {
-        likesCount.textContent = card.likes.length;
-        likeButton.classList.toggle('card__like-button_is-active');
-      });
-  }  
+  const likeMethod = likeButton.classList.contains('card__like-button_is-active') ? deleteLike : putLike;
+  likeMethod(id)
+    .then((card) => {
+      likesCount.textContent = card.likes.length;
+      likeButton.classList.toggle('card__like-button_is-active');
+    })
+    .catch(err => console.log(err));
 };
 
