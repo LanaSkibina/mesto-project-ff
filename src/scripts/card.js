@@ -24,7 +24,7 @@ export function createCard (cardData, userId, deleteCard, imageOnClick, likeCard
   cardTitle.alt = cardData.name;
 
   // отображение значка корзинки для своей карточки
-  const isMyCard = cardData._id;
+  const isMyCard = cardData.owner._id;
   if (isMyCard != userId) {
     deleteButton.remove();
   } else {
@@ -34,6 +34,7 @@ export function createCard (cardData, userId, deleteCard, imageOnClick, likeCard
     });
   } 
 
+  
   // проверяем на мой лайк 
   const isMyLike = cardData.likes.some((like) => {
     return like._id = userId;
