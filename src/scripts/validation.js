@@ -1,14 +1,3 @@
-// Настройки валидации
-export const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible',
-}
-
-
 // Функция проверки валидности всех инпутов формы (есть ли хоть одно невалидное)
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
@@ -105,6 +94,6 @@ export const clearValidation = (formElement, validationConfig) => {
     hideInputError(formElement, inputElement, validationConfig);
   });
 
+  formElement.reset();
   toggleButtonState(inputList, buttonElement, validationConfig);
 }
-

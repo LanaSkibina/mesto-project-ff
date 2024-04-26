@@ -111,12 +111,3 @@ export const editAvatar = (avatarLink) => {
   .then(checkResponse);
 };
 
-// наведение красотищи: улучшения UX, пока данные загружаются
-export const renderLoading = (isLoading, buttonSubmit) => {
-  if (isLoading) {
-    buttonSubmit.textContent = "Сохранение...";
-  } else {
-    buttonSubmit.textContent = "Сохранить";
-  }
-};
-

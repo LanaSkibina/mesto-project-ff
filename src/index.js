@@ -8,10 +8,10 @@ import { openPopup, closePopup, closeEscape, closeOverlay } from './scripts/moda
 import { createCard, deleteCard, likeCard, cardTemplate } from './scripts/card.js';
 
 // Импорт функций, связанных с валидацией
-import { enableValidation, clearValidation, validationConfig } from './scripts/validation.js';
+import { enableValidation, clearValidation } from './scripts/validation.js';
 
 // Импорт функций для обмена данных с серверером
-import { putLike, deleteLike, delCard, editProfile, addNewCard, editAvatar, getAll, renderLoading } from './scripts/api.js';
+import { putLike, deleteLike, delCard, editProfile, addNewCard, editAvatar, getAll } from './scripts/api.js';
 
 //DOM узлы
 const placesContainer = document.querySelector('.places__list');
@@ -57,6 +57,16 @@ const popupImage = document.querySelector('.popup_type_image');
 const popupImageImg = popupImage.querySelector('.popup__image');
 const popupImageTitle = popupImage.querySelector('.popup__caption');
 
+// Валидация
+// Настройки валидации
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+}
 
 // Запуск валидации форм
 enableValidation(validationConfig);
@@ -213,3 +223,12 @@ function submitPopupAdd(evt) {
 // Слушатель на  сохранение добавленной карточки через модальное окно
 popupAddForm.addEventListener('submit', submitPopupAdd); 
 
+
+// наведение красотищи: улучшения UX, пока данные загружаются
+const renderLoading = (isLoading, buttonSubmit) => {
+  if (isLoading) {
+    buttonSubmit.textContent = "Сохранение...";
+  } else {
+    buttonSubmit.textContent = "Сохранить";
+  }
+};
