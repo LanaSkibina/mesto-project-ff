@@ -9,7 +9,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://lanaskibina.github.io/mesto-project-ff/",
   "author": "Lana Skibina",
   "license": "ISC",
   "dependencies": {
