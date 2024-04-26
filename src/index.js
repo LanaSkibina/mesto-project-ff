@@ -125,8 +125,8 @@ function submitEditAvatar(evt) {
   const newUrl = editAvatarLink.value;
   renderLoading(true, newAvatarSubmitButton);
   editAvatar(newUrl)
-    .then(() => {
-      profileImage.style = `background-image: url(${newUrl})`;
+    .then((data) => {
+      profileImage.style = `background-image: url(${data.avatar})`;
       closePopup(popupEditAvatar);
       editAvatarLink.value = '';
     })
@@ -164,9 +164,9 @@ const submitEditProfile = (evt) => {
     about: jobInput.value
   }
   editProfile(profile)
-    .then(() => {
-      profileTitle.textContent = nameInputValue;
-      profileSubtitle.textContent = jobInputValue;
+    .then((data) => {
+      profileTitle.textContent = data.name;
+      profileSubtitle.textContent = data.about;
       closePopup(popupEditProfile);
       nameInput.value = '';
       jobInput.value = '';
