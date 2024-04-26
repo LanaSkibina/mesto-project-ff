@@ -1,14 +1,15 @@
 {
-  "name": "mesto-project",
+  "name": "mesto-project-ff",
   "version": "1.0.0",
   "description": "Учебный проект Место",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "build": "webpack --mode production",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
+  
   "author": "Lana Skibina",
   "license": "ISC",
   "dependencies": {
